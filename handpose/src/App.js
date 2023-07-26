@@ -1,6 +1,6 @@
 /**
  * TODO: 
- * 1. Install dependencies
+ * 1. Install dependencies = tensorflow.js, hand pose model, react webcam - DONE
  * 2. Import dependencies
  * 3. Setup webcam and canvas
  * 4. Define references to those
