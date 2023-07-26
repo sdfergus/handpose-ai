@@ -2,9 +2,9 @@
  * TODO: 
  * 1. Install dependencies = tensorflow.js, hand pose model, react webcam - DONE
  * 2. Import dependencies - DONE
- * 3. Setup webcam and canvas
- * 4. Define references to those
- * 5. Load handpose
+ * 3. Setup webcam and canvas - DONE
+ * 4. Define references to those - DONE
+ * 5. Load handpose - DONE
  * 6. Detect function 
  * 7. Drawing utilities from tenserflow
  * 8. Draw functions
@@ -19,6 +19,13 @@ import './App.css';
 function App() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
+
+  const runHandpose = async () => {
+    const net = await handpose.load()
+    console.log('Handpose model loaded');
+  }
+
+  runHandpose();
 
   return (
     <div className="App">
