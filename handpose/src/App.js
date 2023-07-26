@@ -5,7 +5,7 @@
  * 3. Setup webcam and canvas - DONE
  * 4. Define references to those - DONE
  * 5. Load handpose - DONE
- * 6. Detect function 
+ * 6. Detect function - DONE
  * 7. Drawing utilities from tenserflow
  * 8. Draw functions
  */
@@ -15,6 +15,7 @@ import * as tf from '@tensorflow/tfjs';
 import * as handpose from '@tensorflow-models/handpose';
 import Webcam from 'react-webcam'; //to use desktop webcam
 import './App.css';
+import { drawHand } from './utilities';
 
 function App() {
   const webcamRef = useRef(null);
@@ -55,6 +56,8 @@ function App() {
       console.log(hand);
 
       //Draw mesh
+      const ctx = canvasRef.current.getContext('2d');
+      drawHand(hand, ctx);
     }
   };
 
