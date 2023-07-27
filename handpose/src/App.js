@@ -23,7 +23,7 @@ function App() {
 
   const runHandpose = async () => {
     const net = await handpose.load()
-    console.log('Handpose model loaded');
+    // console.log('Handpose model loaded');
     
     //Loop and detect hands 
     setInterval(()=>{
@@ -33,19 +33,19 @@ function App() {
   };
 
   const detect = async (net) => {
-    // Check data is available
+    // Check if data is available
     if(typeof webcamRef.current !== 'undefined' &&
     webcamRef.current !== null &&
     webcamRef.current.video.readyState === 4) //To make sure data is received
     {
       //Get video properties
       const video = webcamRef.current.video;
-      const videoWidth = webcamRef.current.video.videoWidth;
-      const videoHeight = webcamRef.current.video.videoHeight;
+      const videoWidth = video.videoWidth;
+      const videoHeight = video.videoHeight;
 
       //Set video height + width
-      webcamRef.current.video.width = videoWidth;
-      webcamRef.current.video.height = videoHeight;
+      video.width = videoWidth;
+      video.height = videoHeight;
 
       //Set canvas height + width 
       canvasRef.current.width = videoWidth;

@@ -18,24 +18,26 @@ export const drawHand = (predictions, ctx) => {
 
                 //Loop through fingers
                 for (let j = 0; j < Object.keys(fingerJoints).length; j++) {
+                    
                     let finger = Object.keys(fingerJoints)[j];
+                    
                     //Loop through pairs of joints
                     for (let k = 0; k < fingerJoints[finger].length - 1; k++) {
                         //Get pairs of joints 
-                        const firstJointIndex = fingerJoints[finger][k];
-                        const secondJointIndex = fingerJoints[finger][k+1];
+                        const currJointIndex = fingerJoints[finger][k];
+                        const nextJointIndex = fingerJoints[finger][k+1];
 
                         //Draw path
                         ctx.beginPath();
                         ctx.moveTo(
-                            landmarks[firstJointIndex][0],
-                            landmarks[firstJointIndex][1]
+                            landmarks[currJointIndex][0],
+                            landmarks[currJointIndex][1]
                         );
                         ctx.lineTo(
-                            landmarks[secondJointIndex][0],
-                            landmarks[secondJointIndex][1]
+                            landmarks[nextJointIndex][0],
+                            landmarks[nextJointIndex][1]
                         );
-                        ctx.strokeStyle = 'plum';
+                        ctx.strokeStyle = 'green';
                         ctx.lineWidth = 4;
                         ctx.stroke();    
                     }
