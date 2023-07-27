@@ -10,7 +10,7 @@
  * 8. Draw functions
  */
 
-import React, {useRef} from 'react';
+import React, {useRef, useEffect} from 'react';
 import * as tf from '@tensorflow/tfjs';
 import * as handpose from '@tensorflow-models/handpose';
 import Webcam from 'react-webcam'; //to use desktop webcam
@@ -18,6 +18,12 @@ import './App.css';
 import { drawHand } from './utilities';
 
 function App() {
+
+  //This effect runs once, after the first render
+  useEffect(() => {
+    document.title = 'Hand Pose AI'
+  }, [])
+
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -91,7 +97,8 @@ function App() {
             textAlign:'center',
             zindex:9,
             width:640,
-            height:480
+            height:480,
+            // background: 'white'
           }}
         />
       </header>
